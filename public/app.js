@@ -1,18 +1,7 @@
-"use strict";
-//class
-class Invoice {
-    constructor(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
-    format() {
-        return `${this.client} owes ￡${this.amount} for ${this.details}`;
-    }
-}
-const invOne = new Invoice('mario', 'work on mario website', 360);
-const invTwo = new Invoice('pani', 'run as a dog', 500);
-const invThree = new Invoice('yoshio', 'swim in the sea', 4560);
+import { Invoice } from './classes/Invoice.js';
+const invOne = new Invoice('mario', 'constructing house', 4869000);
+const invTwo = new Invoice('Bundokadoka', 'eat fish', 9800);
+const invThree = new Invoice('yoshio', 'swimming in the river', 4561);
 console.log(invOne, invTwo, invThree);
 let invoices = [];
 invoices.push(invOne);
