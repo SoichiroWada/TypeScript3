@@ -1,16 +1,5 @@
 import { Invoice } from './classes/Invoice.js';
-const invOne = new Invoice('mario', 'constructing house', 4869000);
-const invTwo = new Invoice('Bundokadoka', 'eat fish', 9800);
-const invThree = new Invoice('yoshio', 'swimming in the river', 4561);
-console.log(invOne, invTwo, invThree);
-let invoices = [];
-invoices.push(invOne);
-invoices.push(invTwo);
-invoices.push(invThree);
-console.log("invoices", invoices);
-invoices.forEach(inv => {
-    console.log(inv.client, inv.amount, inv.format());
-});
+import { Payment } from './classes/Payment.js';
 const form = document.querySelector('.new-item-form');
 console.log(form.children);
 //inputs
@@ -20,5 +9,12 @@ const details = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+    let doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    }
+    console.log(doc);
 });
